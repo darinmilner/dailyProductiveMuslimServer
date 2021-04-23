@@ -1,0 +1,38 @@
+{{template "base" .}} {{define "content"}} {{$res := index .Data "signup"}}
+<div class="container mt-3">
+  <div class="row">
+    <div class="col fontColor">
+      <h3>Thank you for signing up to our newsletter</h3>
+      <h4>JazakAllahu Khairun</h4>
+
+      <table class="table table-striped">
+        <thead></thead>
+        <tbody>
+          <tr>
+            <td>First Name:</td>
+            <td>{{$res.FirstName}}</td>
+            <br />
+          </tr>
+          <tr>
+            <td>Last Name:</td>
+            <td>{{$res.LastName}}</td>
+            <br />
+          </tr>
+          <tr>
+            <td>Email:</td>
+            <td>{{$res.Email}}</td>
+            <br />
+          </tr>
+        </tbody>
+      </table>
+      <br />
+      <h4>
+        Please check your inbox for upcoming emails about new apps and products
+        as well as some Islamic reminders.
+      </h4>
+      <a href="/">Back to Home</a>
+    </div>
+  </div>
+</div>
+
+{{end}}

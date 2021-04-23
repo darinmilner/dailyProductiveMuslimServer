@@ -1,0 +1,5 @@
+create_table("counseling_session") {
+    t.Column("id", "integer", {primary: true})
+    t.Column("counselor_name","string", {"default":""})
+   
+}

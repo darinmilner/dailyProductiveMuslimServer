@@ -1,0 +1,75 @@
+{{template "base" .}}
+
+{{define "content"}}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            {{$res := index .Data "counseling-reservation"}}
+            <h1 class="mt-5">Counseling Session Reservation</h1>
+
+            <form method="POST" action="/make-session-reservation" class="" novalidate>
+                <input type="hidden" name="csrf_token" value="{{.CSRFToken}}">
+                <input type="hidden" name="start-date" id="start-date" value="{{index .StringMap " start-date"}}">
+
+                <input type="hidden" name="end-date" id="end-date" value="{{index .StringMap " end-date"}}">
+
+                <div class="form-group mt-5">
+                    <label for="first-name">First Name</label>
+                    {{with .Form.Errors.Get "first-name"}}
+                    <label class="text-danger">{{.}}</label>
+                    {{end}}
+                    <input type="text" name="first-name" id="first-name" class="form-control 
+                    {{with .Form.Errors.Get " first-name"}} is-invalid {{end}}" value="{{$res.FirstName}}" required
+                        autocomplete="off">
+                </div>
+                <div class="form-group  {{with .Form.Errors.Get " last-name"}} is-invalid {{end}}">
+                    <label for="last-name ">Last Name</label>
+                    {{with .Form.Errors.Get "last-name"}}
+                    <label class="text-danger">{{.}}</label>
+                    {{end}}
+                    <input type="text" name="last-name" class="last-name form-control" value="{{$res.LastName}}"
+                        required autocomplete="off">
+                </div>
+                <div class="form-group  {{with .Form.Errors.Get " email"}} is-invalid {{end}}">
+                    <label for="email">Email Address</label>
+                    {{with .Form.Errors.Get "email"}}
+                    <label class="text-danger">{{.}}</label>
+                    {{end}}
+                    <input type="email" name="email" class="email form-control" value="{{$res.Email}}" required
+                        autocomplete="off">
+                </div>
+                <div class="form-group  {{with .Form.Errors.Get " gender"}} is-invalid {{end}}">
+                    <label for="gender">Gender</label>
+                    {{with .Form.Errors.Get "gender"}}
+                    <label class="text-danger">{{.}}</label>
+                    {{end}}
+                    <br>
+                    <hr>
+                    <input type="radio" id="male" name="gender form-control" value="male">
+                    <label for="male">Male</label><br>
+                    <input type="radio" id="female" name="gender form-control" value="female">
+                    <label for="female">Female</label><br>
+                </div>
+                <input type="hidden" name="session-id" value="{{$res.ID}}">
+
+                <div class="form-group  {{with .Form.Errors.Get " reason"}} is-invalid {{end}}">
+                    <label for="text">Reason for requesting a counseling session</label>
+                    {{with .Form.Errors.Get "reason"}}
+                    <label class="text-danger">{{.}}</label>
+                    {{end}}
+                    <input type="text" name="reason" class="email form-control" value="{{$res.Reason}}" required
+                        autocomplete="off">
+                </div>
+
+                <hr>
+                <hr>
+
+                <input type="submit" class="btn btn-success" value="Make Reservation">
+            </form>
+        </div>
+    </div>
+</div>
+
+{{end}}

@@ -1,0 +1,39 @@
+{{template "base" .}} {{define "content"}} {{$res := index .Data "signup"}}
+<div class="container mt-3">
+  <div class="row">
+    <div class="col fontColor">
+    <h3>Alhamdulillah, Your account has been created successfully!</h3>
+      <h4>Thank you for creating an account</h4>
+      <h4>JazakAllahu Khairun</h4>
+
+      <table class="table table-striped">
+        <thead></thead>
+        <tbody>
+          <tr>
+            <td>First Name:</td>
+            <td>{{$res.FirstName}}</td>
+            <br />
+          </tr>
+          <tr>
+            <td>Last Name:</td>
+            <td>{{$res.LastName}}</td>
+            <br />
+          </tr>
+          <tr>
+            <td>Email:</td>
+            <td>{{$res.Email}}</td>
+            <br />
+          </tr>
+        </tbody>
+      </table>
+      <br />
+      <h4>
+        Check you inbox for a confirmation email.</br>
+        May you get much benefit and rewards and enjoyment from the productive Muslim website and app.
+      </h4>
+      <a href="/">Back to Home</a>
+    </div>
+  </div>
+</div>
+
+{{end}}

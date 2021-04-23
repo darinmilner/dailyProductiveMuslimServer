@@ -1,0 +1,44 @@
+{{template "base" .}}
+
+{{define "content"}}
+
+        <div class="container mt-2">
+            <div class="form-row">
+                <div class="col-md-9 align-items-center signup-form">
+                    <h3 class="fontColor">Registration Page</h3>
+                    {{$res := index .Data "user-signup"}}
+                    <form method="POST" action="/create-user" class="" novalidate>
+                        <input type="hidden" name="csrf_token" value="{{.CSRFToken}}">
+
+                        <div class="form-group mt-5">
+                            <label for="first-name">First Name</label>
+                            {{with .Form.Errors.Get "first-name"}}
+                            <label class="text-danger">{{.}}</label>
+                            {{end}}
+                            <input type="text" name="first-name" id="first-name" class="form-control 
+                            {{with .Form.Errors.Get " first-name"}} is-invalid {{end}}" value="{{$res.FirstName}}"
+                                required autocomplete="off">
+                        </div>
+                        <div class="form-group  {{with .Form.Errors.Get " last-name"}} is-invalid {{end}}">
+                            <label for="last-name ">Last Name</label>
+                            {{with .Form.Errors.Get "last-name"}}
+                            <label class="text-danger">{{.}}</label>
+                            {{end}}
+                            <input type="text" name="last-name" class="last-name form-control" value="{{$res.LastName}}"
+                                required autocomplete="off">
+                        </div>
+                        <div class="form-group  {{with .Form.Errors.Get " email"}} is-invalid {{end}}">
+                            <label for="email">Email Address</label>
+                            {{with .Form.Errors.Get "email"}}
+                            <label class="text-danger">{{.}}</label>
+                            {{end}}
+                            <input type="email" name="email" class="email form-control" value="{{$res.Email}}" required
+                                autocomplete="off">
+                        </div>
+                        <input type="submit" class="btn btn-success" value="signup">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+{{end}}

@@ -1,0 +1,84 @@
+{{template "base" .}}
+
+{{define "content"}}
+<div id="main-carousel" class="carousel slide carousel-fade" data-ride="carousel">
+
+    <ol class="carousel-indicators">
+        <li data-target="#main-carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#main-carousel" data-slide-to="1"></li>
+        <li data-target="#main-carousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="/static/img/breakfast.jpg" class="d-block w-100" alt="breakfast">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Slide Label</h5>
+                <p>Text</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="/static/img/house.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Slide Label</h5>
+                <p>Text</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="/static/img/room.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Slide Label</h5>
+                <p>Text</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    </div>
+    <div class="row">
+        <div class="col">
+         <div>
+                            <h4>Today's Date</h4>
+
+                            {{with .Month}}
+                            <h5>{{.}}</h5>
+                            {{end}}
+                            {{with .Day}}
+                            <h5>{{.}}</h5>
+                            {{end}}
+                        </div>
+            <h1 class="text-center mt-3">Welcome To The Daily Productive Muslim App</h1>
+            <p>The App to help you be a Productive Muslim. {Description text goes here.}
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Odio enim voluptatum commodi porro excepturi consequuntur incidunt dolor nisi,
+                magnam quibusdam distinctio earum. Eligendi labore pariatur consectetur
+                cupiditate perferendis commodi provident.</p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col text-center">
+            <a href="/about" class="btn btn-warning">About our App</a>
+        </div>
+    </div>
+     <div class="col-12 mt-3">
+                            <h3>Please consider a donation</h3>
+                            <br>
+                        </div>  
+                       
+                        <div class="col-12 mt-3">
+                             <p>Donations will go towards app upkeep and making more halal content inshallah.</br>
+                                JazakAllahu Khairun</p>
+                            <br>
+                        </div>
+                        
+                       <div class="col-12 mt-3">
+                           <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
+                            data-name="bmc-button" data-slug="darinmilner" data-color="#40DCA5" data-emoji=""
+                            data-font="Cookie" data-text="Buy me a meal" data-outline-color="#000000"
+                            data-font-color="#ffffff" data-coffee-color="#FFDD00"></script>
+                       </div>
+</div>
+   
+{{end}}
